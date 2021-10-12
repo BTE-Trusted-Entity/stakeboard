@@ -110,7 +110,7 @@ export async function signAndSend(
   address: string,
   tx: SubmittableExtrinsic,
   onSuccess: (txHash: string) => void,
-  onError: (error: Error) => void
+  onError: (error: Error, index?: number) => void
 ) {
   const api = await getConnection()
   const injector = await web3FromAddress(address)
@@ -134,7 +134,8 @@ export async function signAndSend(
           const error = new Error(
             `${section}.${name}: ${documentation.join(' ')}`
           )
-          onError(error)
+
+          onError(error, decoded.index)
         } else {
           // Other, CannotLookup, BadOrigin, no extra info
           const error = new Error(dispatchError.toString())

@@ -3,6 +3,7 @@ import { Button } from '../../components/Button/Button'
 import { Modal } from '../../components/Modal/Modal'
 import styles from '../../components/Modal/Modal.module.css'
 import { StateContext } from '../../utils/StateContext'
+import { ErrorCode } from '../../types/ErrorCode'
 
 export const ErrorNotification: React.FC = () => {
   const {
@@ -13,6 +14,14 @@ export const ErrorNotification: React.FC = () => {
   } = useContext(StateContext)
 
   if (!hasError) return null
+  let errorMessaging
+
+  if (error.index === ErrorCode.DelegationsPerRoundExceeded) {
+    errorMessaging =
+      'The identity your delegating has hit its maximum for this session. Please wait for the next session and try again.'
+  } else {
+    errorMessaging = error
+  }
 
   return (
     <Modal
@@ -26,7 +35,7 @@ export const ErrorNotification: React.FC = () => {
     >
       <>
         There was an Error:
-        <p className={styles.errorText}>{error.toString()}</p>
+        <p className={styles.errorText}>{errorMessaging.toString()}</p>
       </>
     </Modal>
   )
