@@ -117,6 +117,7 @@ const DownloadLinks: React.FC = () => {
 
 export interface Props {
   extensions: Extension[]
+  children: React.ReactNode
 }
 export const Onboarding: React.FC<Props> = ({ extensions, children }) => {
   const { accounts, minDelegatorStake } = useContext(BlockchainDataContext)

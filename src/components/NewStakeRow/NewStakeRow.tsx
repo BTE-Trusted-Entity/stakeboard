@@ -57,7 +57,7 @@ export const NewStakeRow: React.FC<Props> = ({ staked = false, collator }) => {
           <IdentitySelector
             accounts={accounts}
             onChange={(val) => setAddress(val?.value || '')}
-            clearValue={address === ''}
+            value={address}
           />
         </div>
       </td>

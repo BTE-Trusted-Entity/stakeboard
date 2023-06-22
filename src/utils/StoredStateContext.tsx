@@ -26,7 +26,9 @@ const mainReducer = (
   denomination: denominationReducer(denomination, action),
 })
 
-export const StoredStateProvider: React.FC = ({ children }) => {
+export const StoredStateProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [storedState, dispatch] = useReducer(
     mainReducer,
     {

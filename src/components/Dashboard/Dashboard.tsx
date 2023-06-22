@@ -14,6 +14,7 @@ export interface Props {
 
 type RefreshPausedOverlayProps = {
   refreshPaused: boolean
+  children: React.ReactNode
 }
 
 const RefreshPausedOverlay: React.FC<RefreshPausedOverlayProps> = ({

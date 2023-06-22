@@ -65,7 +65,7 @@ const mainReducer = (
   termsAccepted: termsReducer(termsAccepted, action),
 })
 
-export const StateProvider: React.FC = ({ children }) => {
+export const StateProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const [state, dispatch] = useReducer(mainReducer, {
     refreshPaused: false,
     account: undefined,

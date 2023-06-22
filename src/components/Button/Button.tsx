@@ -18,6 +18,7 @@ export interface ButtonProps {
   onClick?: (e: MouseEvent) => void
   disabled?: boolean
   color?: ButtonColor
+  children?: React.ReactNode
 }
 
 export const Button: React.FC<ButtonProps> = ({

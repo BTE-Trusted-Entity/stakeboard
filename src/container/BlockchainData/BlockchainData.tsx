@@ -8,6 +8,7 @@ import { StoredStateContext } from '../../utils/StoredStateContext'
 
 export interface Props {
   partialAccounts: Pick<Account, 'address' | 'name'>[]
+  children: React.ReactNode
 }
 
 export const BlockchainData: React.FC<Props> = ({

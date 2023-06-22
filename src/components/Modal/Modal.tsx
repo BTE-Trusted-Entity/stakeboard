@@ -5,6 +5,7 @@ import styles from './Modal.module.css'
 export interface Props {
   title: string
   buttons?: React.ReactNode
+  children: React.ReactNode
 }
 
 export const Modal: React.FC<Props> = ({ children, buttons, title }) => {
